@@ -1,10 +1,12 @@
-import './App.scss';
-import Weather from './Components/Weather';
-
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(require("react"));
+require("./App.scss");
+var Weather_1 = __importDefault(require("./Components/Weather"));
 function App() {
-  return (
-      <Weather />
-  );
+    return (react_1.default.createElement(Weather_1.default, null));
 }
-
-export default App;
+exports.default = App;
