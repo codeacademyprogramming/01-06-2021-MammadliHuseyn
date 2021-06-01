@@ -12,7 +12,7 @@ function CityInfo({ city, measureHandler, deleteCity }: CityInfo) {
     return (
         <li className="city">
             <h2 className="city-name">
-                <span>{city.name}</span>
+                <span data-testid='city-name'>{city.name}</span>
                 <sup>{city.sys.country}</sup>
             </h2>
             <button
