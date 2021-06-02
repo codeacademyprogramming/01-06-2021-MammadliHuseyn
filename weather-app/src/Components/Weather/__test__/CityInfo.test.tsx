@@ -1,38 +1,42 @@
 import { render } from '@testing-library/react';
-import { City } from '../../../interfaces/types';
+import { ICityWeather } from '../../../interfaces/types';
 import CityInfo from "../CityInfo";
 
-const city: City = {
+const city: ICityWeather = {
     "coord": {
         "lon": 32.8543,
         "lat": 39.9199
     },
     "weather": [
         {
-            "id": 801,
-            "main": "Clouds",
-            "description": "few clouds",
-            "icon": "02n"
+            "id": 500,
+            "main": "Rain",
+            "description": "light rain",
+            "icon": "10d"
         }
     ],
     "base": "stations",
     "main": {
-        "temp": 283.42,
-        "feels_like": 282.67,
-        "temp_min": 278.9,
-        "temp_max": 284.38,
+        "temp": 285.24,
+        "feels_like": 284.38,
+        "temp_min": 284.93,
+        "temp_max": 286.66,
         "pressure": 1011,
-        "humidity": 83
+        "humidity": 72
     },
     "visibility": 10000,
     "wind": {
-        "speed": 2.06,
-        "deg": 250
+        "speed": 0.89,
+        "deg": 286,
+        "gust": 1.34
+    },
+    "rain": {
+        "1h": 0.11
     },
     "clouds": {
-        "all": 20
+        "all": 75
     },
-    "dt": 1622589403,
+    "dt": 1622614023,
     "sys": {
         "type": 2,
         "id": 267643,
@@ -52,7 +56,7 @@ describe('CityInfo', () => {
             <CityInfo
                 city={city}
                 measureHandler={(temp: number) => ({ measureTemp: 1, unit: "K" })}
-                deleteCity={(city: City) => { }}
+                deleteCity={(city: ICityWeather) => { }}
                 key={city.id} />
         );
 

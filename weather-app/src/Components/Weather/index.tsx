@@ -3,14 +3,14 @@ import { getWeatherByCity, deleteWeatherbyCity } from '../../store/weather/actio
 import { useDispatch, useSelector } from 'react-redux';
 import CityInfo from './CityInfo';
 import { MEASURE_TYPES } from '../../store/weather/measureTypes';
-import { City } from '../../interfaces/types';
+import { ICityWeather } from '../../interfaces/types';
 
-function Weather() {
+const Weather: React.FC = () => {
 
     const [query, setQuery] = React.useState('');
     const [measure, setMeasure] = React.useState(MEASURE_TYPES.KELVIN);
     const dispatch = useDispatch();
-    const cities = useSelector((state: Array<City>) => state);
+    const cities = useSelector((state: Array<ICityWeather>) => state);
 
     const changeQuery = (e: any) => {
         setQuery(e.target.value);
@@ -20,7 +20,7 @@ function Weather() {
         getWeatherByCity(query)(dispatch);
         setQuery('');
     }
-    const deleteCity = (city: City) => {
+    const deleteCity = (city: ICityWeather) => {
         const isConfirmed = window.confirm("are you sure to delete?");
         if (isConfirmed) {
             dispatch(deleteWeatherbyCity(city));

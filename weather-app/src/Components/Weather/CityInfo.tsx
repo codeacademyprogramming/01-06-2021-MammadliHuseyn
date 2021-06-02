@@ -1,13 +1,13 @@
 import React from 'react';
-import { City } from '../../interfaces/types';
+import { ICityWeather } from '../../interfaces/types';
 
-interface CityInfo {
-    city: City
+interface ICityInfoProps {
+    city: ICityWeather
     measureHandler: Function
     deleteCity: Function
 }
 
-function CityInfo({ city, measureHandler, deleteCity }: CityInfo) {
+const CityInfo: React.FC<ICityInfoProps> = ({ city, measureHandler, deleteCity }) => {
     const { measureTemp, unit } = measureHandler(Number(city.main.temp));
     return (
         <li className="city">
